@@ -1,0 +1,27 @@
+{
+    "name": "vadimizmalkov/core",
+    "description": "Core for WEB applications",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Vadim Izmalkov",
+            "email": "399115@gmail.com"
+        }
+    ],
+    "keywords" : [
+        "zf2"
+    ],
+    "homepage" : "https://github.com/VadimIzmalkov/Core",
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "autoload" : {
+        "psr-0" : {
+            "Core" : "src"
+        },
+        "classmap" : [
+            "./Module.php"
+        ]
+    }
+}
