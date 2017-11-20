@@ -25,14 +25,14 @@ class Module
     public function getServiceConfig() 
     {
         return [
-            'factories'     => [];
+            'factories'     => [],
         ];
     }
 
     public function getControllerConfig() 
     {
         return [
-            'factories'     => [];
+            'factories'     => [],
         ];
     }
 
