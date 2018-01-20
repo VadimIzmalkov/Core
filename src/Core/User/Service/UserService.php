@@ -101,17 +101,24 @@ class UserService extends \Core\Common\Service\EntityService implements UserServ
         $adapter->setCredentialValue($password);
         $authenticationResult = $this->authenticationService->authenticate();
         
-        if ($authenticationResult->isValid()) {
+        if ($authenticationResult->isValid()) 
+        {
             $identity = $authenticationResult->getIdentity();
             $this->authenticationService->getStorage()->write($identity);
-            if(isset($cookie->requestedUri)) {
-                $requestedUri = $cookie->requestedUri;
-                $redirectUri = $this->getRequest()->getUri()->getScheme() . '://' . $this->getRequest()->getUri()->getHost() . $requestedUri;
-                return $this->redirect()->toUrl($redirectUri);
-            }  else {
-                $route = $this->redirects['sign-in']['route'];
-                return $this->redirect()->toRoute($route);
-            }
+
+            return $identity;
+            // if(isset($cookie->requestedUri)) {
+            //     $requestedUri = $cookie->requestedUri;
+            //     $redirectUri = $this->getRequest()->getUri()->getScheme() . '://' . $this->getRequest()->getUri()->getHost() . $requestedUri;
+            //     return $this->redirect()->toUrl($redirectUri);
+            // }  else {
+            //     $route = $this->redirects['sign-in']['route'];
+            //     return $this->redirect()->toRoute($route);
+            // }
+        }
+        else
+        {
+            return  false;
         }
     }
 
