@@ -97,8 +97,10 @@ class UserService extends \Core\Common\Service\EntityService implements UserServ
     public function signIn($email, $password)
     {
         $adapter = $this->authenticationService->getAdapter();
-        $adapter->setIdentityValue($email);
-        $adapter->setCredentialValue($password);
+        // $adapter->setIdentityValue($email);
+        // $adapter->setCredentialValue($password);
+        $adapter->setIdentity($email);
+        $adapter->setCredential($password);
         $authenticationResult = $this->authenticationService->authenticate();
         
         if ($authenticationResult->isValid()) 
